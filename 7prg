@@ -1,0 +1,29 @@
+nano inventory.ini
+
+[local] 
+localhost ansible_connection=local 
+
+
+nano install_nginx.yml 
+
+- name: Install Nginx on Localhost 
+  hosts: local 
+  become: yes 
+  tasks: 
+    - name: Install Nginx 
+      apt: 
+        name: nginx
+        state: present
+
+    - name: Start Nginx Service 
+      service: 
+        name: nginx 
+        state: started 
+        enabled: yes  
+
+
+sudo ansible-playbook -i inventory.ini install_nginx.yml
+
+
+
+systemctl status nginx
