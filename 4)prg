@@ -1,0 +1,11 @@
+gradle init 
+
+id 'application'
+
+application{
+  mainClass='com.maven.prog4.App'
+}
+
+gradle clean build
+
+gradle run
